@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+      script-src 'self';
+      connect-src *;
+      style-src 'self' 'unsafe-inline'"
+    />
+
+    <link href="./assets/styles.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <ul class="versions">
+        <li class="electron-version"></li>
+        <li class="chrome-version"></li>
+        <li class="node-version"></li>
+        <li class="v8-version"></li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="container-btn">
+        <button class="btn-switch" id="btn-switch">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+          </svg>
+        </button>
+        <button class="btn-save" id="btn-save">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l5 5l10 -10"></path>
+         </svg>
+        </button>
+      </div>
+      <div class="content-markdown" id="content-markdown">
+        <textarea id="content-markdown-preview"></textarea>
+      </div>
+      <div class="content-html">
+        <p id="content-html-preview"></p>
+      </div>
+    </main>
+
+    <script type="module" src="./src/renderer.ts"></script>
+  </body>
+</html>
